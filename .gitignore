@@ -12,3 +12,7 @@ wheels/
 
 # Data files
 *.pdf
+*.pyc
+storage/
+reports/
+.pytest_cache/
