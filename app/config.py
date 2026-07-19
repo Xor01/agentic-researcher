@@ -22,7 +22,7 @@ config = Config(
     llm_model='gpt-5.4',
     temperature=0,
     embedding_model='text-embedding-3-small',
-    data_dir='./tests',
+    data_dir='./data',
     storage_dir='./storage',
 
 )
