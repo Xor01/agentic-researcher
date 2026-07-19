@@ -16,3 +16,4 @@ wheels/
 storage/
 reports/
 .pytest_cache/
+*.log
