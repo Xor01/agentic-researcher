@@ -1,0 +1,36 @@
+{"id": "cls-01", "category": "factual", "question": "What are the data classification levels?", "expected_sources": ["DataClassificationPolicy.pdf"]}
+{"id": "cls-02", "category": "factual", "question": "What does the principle of least privilege require for personnel access?", "expected_sources": ["DataClassificationPolicy.pdf"]}
+{"id": "cls-03", "category": "factual", "question": "Which classification level applies when a dataset contains mixed classification levels?", "expected_sources": ["DataClassificationPolicy.pdf"]}
+{"id": "cls-04", "category": "factual", "question": "What does the principle of timely classification require?", "expected_sources": ["DataClassificationPolicy.pdf"]}
+{"id": "pdp-01", "category": "factual", "question": "How is a data controller defined in the data management standards?", "expected_sources": ["DataManagementPersonalDataProtectionStandards.pdf"]}
+{"id": "pdp-02", "category": "factual", "question": "What domains are covered by the KSA data management and personal data protection standards?", "expected_sources": ["DataManagementPersonalDataProtectionStandards.pdf"]}
+{"id": "pdp-03", "category": "factual", "question": "What is included in the data governance domain of the national standards?", "expected_sources": ["DataManagementPersonalDataProtectionStandards.pdf"]}
+{"id": "pdp-04", "category": "factual", "question": "What are the data management guiding principles?", "expected_sources": ["DataManagementPersonalDataProtectionStandards.pdf"]}
+{"id": "prv-01", "category": "factual", "question": "What key elements must an entity include in its privacy policy?", "expected_sources": ["PrivacyPolicyGuideline.pdf"]}
+{"id": "prv-02", "category": "factual", "question": "What rights do personal data subjects have under the privacy policy guideline?", "expected_sources": ["PrivacyPolicyGuideline.pdf"]}
+{"id": "prv-03", "category": "factual", "question": "What mechanism must entities provide for filing complaints and objections about personal data?", "expected_sources": ["PrivacyPolicyGuideline.pdf"]}
+{"id": "prv-04", "category": "factual", "question": "What must a privacy policy state about personal data storage, retention period, and destruction?", "expected_sources": ["PrivacyPolicyGuideline.pdf"]}
+{"id": "prv-05", "category": "factual", "question": "Which article of the Personal Data Protection Law establishes the right to be informed?", "expected_sources": ["PrivacyPolicyGuideline.pdf"]}
+{"id": "xbr-01", "category": "factual", "question": "What are the main phases of risk assessment for transferring personal data outside the Kingdom?", "expected_sources": ["RisksTransferringDataOutsideKingdomEn.pdf"]}
+{"id": "xbr-02", "category": "factual", "question": "What is covered in the preparation phase of a data transfer risk assessment?", "expected_sources": ["RisksTransferringDataOutsideKingdomEn.pdf"]}
+{"id": "xbr-03", "category": "factual", "question": "What factors relate to the analysis of implications for the vital interests of the Kingdom?", "expected_sources": ["RisksTransferringDataOutsideKingdomEn.pdf"]}
+{"id": "gov-01", "category": "factual", "question": "What generative AI guidelines apply to government entities?", "expected_sources": ["GenAIGuidelinesForGovernmentENCompressed.pdf"]}
+{"id": "gov-02", "category": "factual", "question": "What are the roles and responsibilities of the Data Management Office for generative AI in government?", "expected_sources": ["GenAIGuidelinesForGovernmentENCompressed.pdf"]}
+{"id": "gov-03", "category": "factual", "question": "How is government data defined in the generative AI guidelines?", "expected_sources": ["GenAIGuidelinesForGovernmentENCompressed.pdf"]}
+{"id": "pub-01", "category": "factual", "question": "What are the principles of generative AI?", "expected_sources": ["GenerativeAIPublicEN.pdf", "GenAIGuidelinesForGovernmentENCompressed.pdf"]}
+{"id": "pub-02", "category": "factual", "question": "What benefits of generative AI are described for the public?", "expected_sources": ["GenerativeAIPublicEN.pdf"]}
+{"id": "pub-03", "category": "factual", "question": "What mitigation measures are suggested for generative AI safety threats?", "expected_sources": ["GenerativeAIPublicEN.pdf"]}
+{"id": "dfk-01", "category": "factual", "question": "What guidance is given to deepfake technology developers?", "expected_sources": ["File0001.pdf"]}
+{"id": "dfk-02", "category": "factual", "question": "How can consumers detect deepfakes and prevent related risks?", "expected_sources": ["File0001.pdf"]}
+{"id": "dfk-03", "category": "factual", "question": "What are non-malicious deepfakes and how are they used?", "expected_sources": ["File0001.pdf"]}
+{"id": "adp-01", "category": "factual", "question": "What are the directions, enablers, and outcomes in the AI adoption framework?", "expected_sources": ["AIAdoptionFramework.pdf"]}
+{"id": "adp-02", "category": "factual", "question": "What challenges and risks of artificial intelligence are identified in the adoption framework?", "expected_sources": ["AIAdoptionFramework.pdf"]}
+{"id": "adp-03", "category": "factual", "question": "Who is the target audience of the AI adoption framework?", "expected_sources": ["AIAdoptionFramework.pdf"]}
+{"id": "edu-01", "category": "factual", "question": "How are AI qualifications placed on the National Qualifications Framework levels?", "expected_sources": ["File0003.pdf"]}
+{"id": "edu-02", "category": "factual", "question": "What international benchmarks were used for the Saudi academic framework for AI?", "expected_sources": ["File0003.pdf"]}
+{"id": "cmp-01", "category": "comparison", "question": "How do the privacy and security principles for generative AI in government compare with those for the public?", "expected_sources": ["GenAIGuidelinesForGovernmentENCompressed.pdf", "GenerativeAIPublicEN.pdf"]}
+{"id": "cmp-02", "category": "comparison", "question": "How does data classification relate to personal data protection requirements?", "expected_sources": ["DataClassificationPolicy.pdf", "DataManagementPersonalDataProtectionStandards.pdf"]}
+{"id": "ara-01", "category": "arabic_probe", "question": "What organizational arrangements are described for data governance responsibilities?", "expected_sources": ["organizationalArrangements.pdf"]}
+{"id": "oos-01", "category": "out_of_scope", "question": "What is the maximum GDPR fine for a data breach under German law?", "expected_sources": []}
+{"id": "oos-02", "category": "out_of_scope", "question": "How do I configure a Kubernetes ingress controller with TLS termination?", "expected_sources": []}
+{"id": "oos-03", "category": "out_of_scope", "question": "What were the quarterly revenue figures for Aramco in 2024?", "expected_sources": []}

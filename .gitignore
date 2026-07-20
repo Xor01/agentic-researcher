@@ -16,3 +16,4 @@ storage/
 reports/
 .pytest_cache/
 *.log
+*.pptx

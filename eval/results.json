@@ -1,0 +1,1161 @@
+{
+  "config": {
+    "llm_model": "gpt-5.4",
+    "embedding_model": "text-embedding-3-small",
+    "top_k": 5,
+    "max_tool_calls": 10
+  },
+  "metrics": {
+    "n_cases": 36,
+    "retrieval": {
+      "n_with_expected_sources": 33,
+      "source_hit_rate": 0.97,
+      "misses": [
+        "ara-01"
+      ]
+    },
+    "answers": {
+      "in_scope_answer_rate": 0.97,
+      "in_scope_grounded_rate": 0.939,
+      "ungrounded_ids": [
+        "edu-02",
+        "ara-01"
+      ],
+      "unanswered_ids": [
+        "edu-02"
+      ]
+    },
+    "out_of_scope": {
+      "n": 3,
+      "correct_abstention_rate": 1.0,
+      "leaked_ids": []
+    },
+    "validation": {
+      "n": 6,
+      "accuracy": 1.0
+    },
+    "latency_s": {
+      "mean": 2.87,
+      "p50": 2.66,
+      "p95": 4.42,
+      "max": 7.41
+    },
+    "tokens": {
+      "system_prompt": 65388,
+      "system_completion": 4882,
+      "embedding": 466,
+      "judge_prompt": 62070,
+      "judge_completion": 501
+    },
+    "cost_usd": {
+      "system_total": 0.1306,
+      "per_query_mean": 0.00363,
+      "judge_total": 0.0826,
+      "rates_used": {
+        "input_per_1m": 1.25,
+        "output_per_1m": 10.0
+      }
+    },
+    "agent": {
+      "n": 5,
+      "latency_s_mean": 28.35,
+      "latency_s_max": 47.28,
+      "cost_usd_mean": 0.02801
+    }
+  },
+  "cases": [
+    {
+      "id": "cls-01",
+      "category": "factual",
+      "question": "What are the data classification levels?",
+      "expected_sources": [
+        "DataClassificationPolicy.pdf"
+      ],
+      "retrieved_sources": [
+        "DataClassificationPolicy.pdf",
+        "DataManagementPersonalDataProtectionStandards.pdf"
+      ],
+      "source_hit": true,
+      "answer": "The data classification levels mentioned are:\n\n- Public\n- Confidential\n- Restricted\n- Secret\n- Top Secret\n\nIf a dataset contains mixed classifications, the highest classification level applies.",
+      "answered": true,
+      "grounded": true,
+      "latency_s": 3.64,
+      "usage": {
+        "prompt_tokens": 1575,
+        "completion_tokens": 39,
+        "embedding_tokens": 7
+      },
+      "judge_usage": {
+        "prompt_tokens": 1393,
+        "completion_tokens": 14,
+        "embedding_tokens": 0
+      },
+      "cost_usd": 0.002359
+    },
+    {
+      "id": "cls-02",
+      "category": "factual",
+      "question": "What does the principle of least privilege require for personnel access?",
+      "expected_sources": [
+        "DataClassificationPolicy.pdf"
+      ],
+      "retrieved_sources": [
+        "DataClassificationPolicy.pdf"
+      ],
+      "source_hit": true,
+      "answer": "The principle of least privilege requires that personnel members have only the minimum access needed to perform their assigned tasks and responsibilities.",
+      "answered": true,
+      "grounded": true,
+      "latency_s": 1.83,
+      "usage": {
+        "prompt_tokens": 1446,
+        "completion_tokens": 26,
+        "embedding_tokens": 12
+      },
+      "judge_usage": {
+        "prompt_tokens": 1259,
+        "completion_tokens": 14,
+        "embedding_tokens": 0
+      },
+      "cost_usd": 0.002067
+    },
+    {
+      "id": "cls-03",
+      "category": "factual",
+      "question": "Which classification level applies when a dataset contains mixed classification levels?",
+      "expected_sources": [
+        "DataClassificationPolicy.pdf"
+      ],
+      "retrieved_sources": [
+        "DataClassificationPolicy.pdf",
+        "DataManagementPersonalDataProtectionStandards.pdf"
+      ],
+      "source_hit": true,
+      "answer": "The highest classification level shall apply when a dataset contains mixed classification levels.",
+      "answered": true,
+      "grounded": true,
+      "latency_s": 1.36,
+      "usage": {
+        "prompt_tokens": 1758,
+        "completion_tokens": 17,
+        "embedding_tokens": 12
+      },
+      "judge_usage": {
+        "prompt_tokens": 1554,
+        "completion_tokens": 14,
+        "embedding_tokens": 0
+      },
+      "cost_usd": 0.002367
+    },
+    {
+      "id": "cls-04",
+      "category": "factual",
+      "question": "What does the principle of timely classification require?",
+      "expected_sources": [
+        "DataClassificationPolicy.pdf"
+      ],
+      "retrieved_sources": [
+        "DataClassificationPolicy.pdf"
+      ],
+      "source_hit": true,
+      "answer": "The principle of timely classification requires that data be classified when it is created or when it is received from other entities, and that the classification be timebound.",
+      "answered": true,
+      "grounded": true,
+      "latency_s": 1.62,
+      "usage": {
+        "prompt_tokens": 1661,
+        "completion_tokens": 34,
+        "embedding_tokens": 9
+      },
+      "judge_usage": {
+        "prompt_tokens": 1482,
+        "completion_tokens": 14,
+        "embedding_tokens": 0
+      },
+      "cost_usd": 0.002416
+    },
+    {
+      "id": "pdp-01",
+      "category": "factual",
+      "question": "How is a data controller defined in the data management standards?",
+      "expected_sources": [
+        "DataManagementPersonalDataProtectionStandards.pdf"
+      ],
+      "retrieved_sources": [
+        "DataManagementPersonalDataProtectionStandards.pdf"
+      ],
+      "source_hit": true,
+      "answer": "A data controller is any natural or legal person, public authority, agency, or other body that alone or jointly with others determines the purposes and means of processing personal data, and/or carries out processing directly or through a data processor.",
+      "answered": true,
+      "grounded": true,
+      "latency_s": 1.93,
+      "usage": {
+        "prompt_tokens": 2438,
+        "completion_tokens": 49,
+        "embedding_tokens": 12
+      },
+      "judge_usage": {
+        "prompt_tokens": 2254,
+        "completion_tokens": 14,
+        "embedding_tokens": 0
+      },
+      "cost_usd": 0.003537
+    },
+    {
+      "id": "pdp-02",
+      "category": "factual",
+      "question": "What domains are covered by the KSA data management and personal data protection standards?",
+      "expected_sources": [
+        "DataManagementPersonalDataProtectionStandards.pdf"
+      ],
+      "retrieved_sources": [
+        "DataManagementPersonalDataProtectionStandards.pdf"
+      ],
+      "source_hit": true,
+      "answer": "The standards cover 15 domains:\n\n1. Data Governance  \n2. Data Catalog and Metadata  \n3. Data Quality  \n4. Data Operations  \n5. Document and Content Management  \n6. Data Architecture and Modeling  \n7. Reference and Master Data Management  \n8. Business Intelligence and Analytics  \n9. Data Sharing and Interoperability  \n10. Data Value Realization  \n11. Open Data  \n12. Freedom of Information  \n13. Data Classification  \n14. Personal Data Protection  \n15. Data Security and Protection",
+      "answered": true,
+      "grounded": true,
+      "latency_s": 1.62,
+      "usage": {
+        "prompt_tokens": 2245,
+        "completion_tokens": 105,
+        "embedding_tokens": 16
+      },
+      "judge_usage": {
+        "prompt_tokens": 2118,
+        "completion_tokens": 14,
+        "embedding_tokens": 0
+      },
+      "cost_usd": 0.003856
+    },
+    {
+      "id": "pdp-03",
+      "category": "factual",
+      "question": "What is included in the data governance domain of the national standards?",
+      "expected_sources": [
+        "DataManagementPersonalDataProtectionStandards.pdf"
+      ],
+      "retrieved_sources": [
+        "DataManagementPersonalDataProtectionStandards.pdf"
+      ],
+      "source_hit": true,
+      "answer": "The Data Governance domain includes 8 controls and 28 specifications. It provides the authority and control for planning and implementing an organization’s data management practices.\n\nThe controls included in this domain are:\n\n1. Strategy and Plan  \n2. Organization  \n3. Policy and Guidelines  \n4. Training and Awareness  \n5. Compliance Audit Framework  \n6. Artifacts  \n7. Data Lifecycle Governance  \n8. Performance Management\n\nExamples of what is covered under this domain include:\n- Establishing data governance KPIs\n- Monitoring continuous improvement across data management domains\n- Documenting approved data governance decisions\n- Tracking data management issues and resolutions\n- Implementing version control for data management documents and artifacts",
+      "answered": true,
+      "grounded": true,
+      "latency_s": 2.57,
+      "usage": {
+        "prompt_tokens": 1904,
+        "completion_tokens": 139,
+        "embedding_tokens": 13
+      },
+      "judge_usage": {
+        "prompt_tokens": 1811,
+        "completion_tokens": 14,
+        "embedding_tokens": 0
+      },
+      "cost_usd": 0.00377
+    },
+    {
+      "id": "pdp-04",
+      "category": "factual",
+      "question": "What are the data management guiding principles?",
+      "expected_sources": [
+        "DataManagementPersonalDataProtectionStandards.pdf"
+      ],
+      "retrieved_sources": [
+        "AIAdoptionFramework.pdf",
+        "DataManagementPersonalDataProtectionStandards.pdf"
+      ],
+      "source_hit": true,
+      "answer": "The data management guiding principles are:\n\n1. **Data as a National Asset**  \n   Government data should be discoverable, protected, maintained with clear accountability, and have the potential to be monetized.\n\n2. **Data Protection by Design**  \n   Systems and processes should proactively protect individuals’ privacy and their right to consent or refuse, in line with applicable laws.\n\n3. **Open by Default**  \n   Most government data should be made available to the public by default unless there is sufficient justification that non-disclosure serves a greater public interest.\n\n4. **Ethical Data Use**  \n   Data governance and usage should follow ethical practices centered on fairness, traceability, and contribution to the common good, aligned with Saudi culture.\n\n5. **Purposeful Design**  \n   Data collection, processing, sharing, and usage should follow a human-centric and responsive approach that meets future needs.\n\n6. **Data-Driven Outcomes**  \n   Operational, strategic, and policy decisions should be driven by data insights.\n\n7. **Learning Culture**  \n   Talent and human capital should continuously learn, adapt, and lead amid rapid technology advancement and market change.\n\n8. **Trusted Data**  \n   Trust should be built through high-quality data and transparency about the level of data quality.",
+      "answered": true,
+      "grounded": true,
+      "latency_s": 2.96,
+      "usage": {
+        "prompt_tokens": 2178,
+        "completion_tokens": 258,
+        "embedding_tokens": 8
+      },
+      "judge_usage": {
+        "prompt_tokens": 2205,
+        "completion_tokens": 14,
+        "embedding_tokens": 0
+      },
+      "cost_usd": 0.005302
+    },
+    {
+      "id": "prv-01",
+      "category": "factual",
+      "question": "What key elements must an entity include in its privacy policy?",
+      "expected_sources": [
+        "PrivacyPolicyGuideline.pdf"
+      ],
+      "retrieved_sources": [
+        "PrivacyPolicyGuideline.pdf"
+      ],
+      "source_hit": true,
+      "answer": "An entity’s privacy policy should include these key elements:\n\n- The personal data to be collected\n- The purpose of processing\n- The method of use\n- The legal basis for collecting and processing\n- The entities to which the data may be disclosed\n- The geographical scope of processing\n- The data retention period\n- The method of data destruction\n- The data subject’s rights and how to exercise them\n- The mechanism for communicating with the entity\n\nIt should also make the information available clearly and accessibly to individuals, such as through the entity’s website or application. Additionally, the policy should include the entity’s official name and a brief overview of its activities, services, and target group.",
+      "answered": true,
+      "grounded": true,
+      "latency_s": 2.42,
+      "usage": {
+        "prompt_tokens": 1646,
+        "completion_tokens": 144,
+        "embedding_tokens": 12
+      },
+      "judge_usage": {
+        "prompt_tokens": 1567,
+        "completion_tokens": 14,
+        "embedding_tokens": 0
+      },
+      "cost_usd": 0.003497
+    },
+    {
+      "id": "prv-02",
+      "category": "factual",
+      "question": "What rights do personal data subjects have under the privacy policy guideline?",
+      "expected_sources": [
+        "PrivacyPolicyGuideline.pdf"
+      ],
+      "retrieved_sources": [
+        "PrivacyPolicyGuideline.pdf"
+      ],
+      "source_hit": true,
+      "answer": "Personal data subjects have these rights under the privacy policy guideline:\n\n1. **Right to be informed**  \n   They must be told the legal basis and purpose of collecting their data, how it will be processed, stored, destroyed, and with whom it may be shared.\n\n2. **Right to access their personal data**  \n   They can access the personal data held by the controller, either by request or through tools that allow automatic access.\n\n3. **Right to request access in a clear and readable format**  \n   They can request their personal data in a readable, clear format, in a commonly used format if feasible, or as a printed hard copy.\n\n4. **Right to request correction, completion, and update**  \n   They can ask for inaccurate, incomplete, or outdated personal data to be corrected or updated.\n\n5. **Right to request destruction**  \n   They can request deletion of their personal data when it is no longer necessary for the purpose for which it was collected, and in certain applicable circumstances.\n\n6. **Right to withdraw consent**  \n   They can withdraw consent for processing their personal data at any time, unless another legal basis requires the processing to continue.\n\nThey should also be given suitable communication channels, such as email, text messages, or electronic applications, to exercise these rights, and be informed of the expected response time.",
+      "answered": true,
+      "grounded": true,
+      "latency_s": 3.59,
+      "usage": {
+        "prompt_tokens": 1990,
+        "completion_tokens": 274,
+        "embedding_tokens": 13
+      },
+      "judge_usage": {
+        "prompt_tokens": 2041,
+        "completion_tokens": 14,
+        "embedding_tokens": 0
+      },
+      "cost_usd": 0.005227
+    },
+    {
+      "id": "prv-03",
+      "category": "factual",
+      "question": "What mechanism must entities provide for filing complaints and objections about personal data?",
+      "expected_sources": [
+        "PrivacyPolicyGuideline.pdf"
+      ],
+      "retrieved_sources": [
+        "DataManagementPersonalDataProtectionStandards.pdf",
+        "PrivacyPolicyGuideline.pdf"
+      ],
+      "source_hit": true,
+      "answer": "Entities must provide a clear complaint and objection filing mechanism for data subjects. This should include:\n\n- A way to submit complaints or objections, especially if rights were not enabled within the specified period or if there is an objection to processing.\n- The name of the department or division responsible for receiving and handling complaints.\n- Contact details for that department or division.\n- The time period set for processing complaints.\n- Information about the competent authority to contact if the data subject is not satisfied with the result of the complaint handling or if no response is received in time.\n\nPossible filing channels can include the designated department’s contact methods, and unresolved complaints may be escalated to the Saudi Data & AI Authority (SDAIA).",
+      "answered": true,
+      "grounded": true,
+      "latency_s": 3.46,
+      "usage": {
+        "prompt_tokens": 1874,
+        "completion_tokens": 144,
+        "embedding_tokens": 14
+      },
+      "judge_usage": {
+        "prompt_tokens": 1793,
+        "completion_tokens": 14,
+        "embedding_tokens": 0
+      },
+      "cost_usd": 0.003783
+    },
+    {
+      "id": "prv-04",
+      "category": "factual",
+      "question": "What must a privacy policy state about personal data storage, retention period, and destruction?",
+      "expected_sources": [
+        "PrivacyPolicyGuideline.pdf"
+      ],
+      "retrieved_sources": [
+        "PrivacyPolicyGuideline.pdf"
+      ],
+      "source_hit": true,
+      "answer": "A privacy policy must state:\n\n- How personal data is stored.\n- Where it is stored geographically, including whether it is on the entity’s own servers or with an external provider such as a cloud service provider, inside or outside the Kingdom.\n- The retention period for personal data, with the period specified for each type of personal data according to regulatory requirements.\n- How the data will be destroyed after its purpose is fulfilled, in a way that prevents it from being viewed, accessed, or recovered.\n- The administrative, technical, and organizational measures used to protect the data from leakage, damage, or unlawful access, such as encryption, anonymization, and coding, with security measures appropriate to the sensitivity and volume of the data.",
+      "answered": true,
+      "grounded": true,
+      "latency_s": 2.66,
+      "usage": {
+        "prompt_tokens": 1776,
+        "completion_tokens": 148,
+        "embedding_tokens": 17
+      },
+      "judge_usage": {
+        "prompt_tokens": 1701,
+        "completion_tokens": 14,
+        "embedding_tokens": 0
+      },
+      "cost_usd": 0.0037
+    },
+    {
+      "id": "prv-05",
+      "category": "factual",
+      "question": "Which article of the Personal Data Protection Law establishes the right to be informed?",
+      "expected_sources": [
+        "PrivacyPolicyGuideline.pdf"
+      ],
+      "retrieved_sources": [
+        "PrivacyPolicyGuideline.pdf"
+      ],
+      "source_hit": true,
+      "answer": "Article (4) establishes the right to be informed.",
+      "answered": true,
+      "grounded": true,
+      "latency_s": 1.57,
+      "usage": {
+        "prompt_tokens": 1978,
+        "completion_tokens": 14,
+        "embedding_tokens": 15
+      },
+      "judge_usage": {
+        "prompt_tokens": 1769,
+        "completion_tokens": 14,
+        "embedding_tokens": 0
+      },
+      "cost_usd": 0.002613
+    },
+    {
+      "id": "xbr-01",
+      "category": "factual",
+      "question": "What are the main phases of risk assessment for transferring personal data outside the Kingdom?",
+      "expected_sources": [
+        "RisksTransferringDataOutsideKingdomEn.pdf"
+      ],
+      "retrieved_sources": [
+        "RisksTransferringDataOutsideKingdomEn.pdf"
+      ],
+      "source_hit": true,
+      "answer": "The main phases are:\n\n1. Preparation phase  \n2. Assessing negative impacts and potential risks of personal data processing phase  \n3. Risk assessment for data transfer or disclosure to entities outside the Kingdom  \n4. Guidelines for identifying factors related to the analysis of implications for the vital interests of the Kingdom",
+      "answered": true,
+      "grounded": true,
+      "latency_s": 1.89,
+      "usage": {
+        "prompt_tokens": 1400,
+        "completion_tokens": 62,
+        "embedding_tokens": 16
+      },
+      "judge_usage": {
+        "prompt_tokens": 1210,
+        "completion_tokens": 14,
+        "embedding_tokens": 0
+      },
+      "cost_usd": 0.00237
+    },
+    {
+      "id": "xbr-02",
+      "category": "factual",
+      "question": "What is covered in the preparation phase of a data transfer risk assessment?",
+      "expected_sources": [
+        "RisksTransferringDataOutsideKingdomEn.pdf"
+      ],
+      "retrieved_sources": [
+        "RisksTransferringDataOutsideKingdomEn.pdf"
+      ],
+      "source_hit": true,
+      "answer": "The preparation phase covers the required steps for conducting a risk assessment for data transfer or disclosure, including evaluating whether it is necessary to assess potential risks and impacts of processing personal data when offering a product or service to the public.\n\nIt includes determining whether an assessment is required, such as when:\n\n1. The processing involves sensitive data.\n2. Two or more sets of personal data from multiple sources are collected, compared, or linked.\n3. Personal data is processed on a large scale or recurring basis for individuals with partial or complete legal incapacity.\n4. Processing operations require continuous monitoring of personal data subjects or involve the use of emerging technologies.",
+      "answered": true,
+      "grounded": true,
+      "latency_s": 3.28,
+      "usage": {
+        "prompt_tokens": 1410,
+        "completion_tokens": 130,
+        "embedding_tokens": 14
+      },
+      "judge_usage": {
+        "prompt_tokens": 1287,
+        "completion_tokens": 14,
+        "embedding_tokens": 0
+      },
+      "cost_usd": 0.003063
+    },
+    {
+      "id": "xbr-03",
+      "category": "factual",
+      "question": "What factors relate to the analysis of implications for the vital interests of the Kingdom?",
+      "expected_sources": [
+        "RisksTransferringDataOutsideKingdomEn.pdf"
+      ],
+      "retrieved_sources": [
+        "DataClassificationPolicy.pdf",
+        "RisksTransferringDataOutsideKingdomEn.pdf"
+      ],
+      "source_hit": true,
+      "answer": "The factors relate to assessing how transferring or disclosing personal data outside the Kingdom could affect the Kingdom’s vital interests. The relevant impact areas include:\n\n- Kingdom’s reputation\n- Diplomatic relationships\n- National security and public order\n- National economy\n- National infrastructure\n- Functions of government entities\n\nThe analysis also involves:\n\n- Evaluating compliance with legal and regulatory requirements related to disclosure, transit, and onward transfer\n- Assessing the adequacy of security standards and technical measures used by the receiving entity\n- Reviewing the legal regulations governing the entity or entities receiving the personal data\n- Evaluating whether measures are sufficient to reduce negative impacts and risks, and applying additional safeguards where needed",
+      "answered": true,
+      "grounded": true,
+      "latency_s": 2.57,
+      "usage": {
+        "prompt_tokens": 1709,
+        "completion_tokens": 140,
+        "embedding_tokens": 16
+      },
+      "judge_usage": {
+        "prompt_tokens": 1629,
+        "completion_tokens": 14,
+        "embedding_tokens": 0
+      },
+      "cost_usd": 0.003536
+    },
+    {
+      "id": "gov-01",
+      "category": "factual",
+      "question": "What generative AI guidelines apply to government entities?",
+      "expected_sources": [
+        "GenAIGuidelinesForGovernmentENCompressed.pdf"
+      ],
+      "retrieved_sources": [
+        "GenAIGuidelinesForGovernmentENCompressed.pdf"
+      ],
+      "source_hit": true,
+      "answer": "Government entities should apply guidelines that ensure responsible, lawful, and transparent use of generative AI, including:\n\n- Establish clear internal policies and guidelines for responsible use.\n- Consult experts to assess legal risks and ensure compliance with applicable laws and regulations.\n- Comply with the Kingdom’s regulations and policies, the Personal Data Protection Law, and AI Ethics Principles.\n- Ensure use of government data aligns with entity policies on privacy, data classification, data sharing, and relevant terms and conditions.\n- Set and follow standards and controls for using generative AI in contracts and procurement.\n- Prioritize transparency by disclosing content created with generative AI and making it easy for users to identify such content.\n- Provide non-automated alternatives when users prefer human interaction.\n- Limit use of generative AI tools to authorized personnel.\n- Keep detailed records of employee use to evaluate workflow impact.\n- Promote education and continuous training so employees understand benefits, risks, technical aspects, and data handling procedures.\n- Require users to apply critical thinking and verify outputs, since results may be inaccurate, outdated, biased, misleading, or may raise intellectual property issues.\n- Ensure extra verification for official reports, legal documents, and generated code before use or execution.\n- Inform relevant individuals when AI-generated content is used, and use watermarks when necessary.",
+      "answered": true,
+      "grounded": true,
+      "latency_s": 3.59,
+      "usage": {
+        "prompt_tokens": 1649,
+        "completion_tokens": 264,
+        "embedding_tokens": 10
+      },
+      "judge_usage": {
+        "prompt_tokens": 1665,
+        "completion_tokens": 14,
+        "embedding_tokens": 0
+      },
+      "cost_usd": 0.004701
+    },
+    {
+      "id": "gov-02",
+      "category": "factual",
+      "question": "What are the roles and responsibilities of the Data Management Office for generative AI in government?",
+      "expected_sources": [
+        "GenAIGuidelinesForGovernmentENCompressed.pdf"
+      ],
+      "retrieved_sources": [
+        "GenAIGuidelinesForGovernmentENCompressed.pdf"
+      ],
+      "source_hit": true,
+      "answer": "The Data Management Office is responsible for:\n\n- Approving generative AI tools after reviewing privacy, disclosure, and data-sharing policies to ensure compliance with regulations and policies in Saudi Arabia.\n- Ensuring strong data management practices for obtaining, processing, and maintaining data.\n- Verifying that data sources are legitimate and that required approvals are obtained.\n- Conducting audits to assess the quality of training data used in generative AI and identify potential bias.\n- Coordinating with legal experts to address data privacy concerns and ensure compliance with relevant laws and policies, including the Personal Data Protection Law and policies issued by SDAIA.",
+      "answered": true,
+      "grounded": true,
+      "latency_s": 2.25,
+      "usage": {
+        "prompt_tokens": 1710,
+        "completion_tokens": 124,
+        "embedding_tokens": 18
+      },
+      "judge_usage": {
+        "prompt_tokens": 1586,
+        "completion_tokens": 14,
+        "embedding_tokens": 0
+      },
+      "cost_usd": 0.003378
+    },
+    {
+      "id": "gov-03",
+      "category": "factual",
+      "question": "How is government data defined in the generative AI guidelines?",
+      "expected_sources": [
+        "GenAIGuidelinesForGovernmentENCompressed.pdf"
+      ],
+      "retrieved_sources": [
+        "GenAIGuidelinesForGovernmentENCompressed.pdf"
+      ],
+      "source_hit": true,
+      "answer": "Government data is defined as all data, regardless of its form, source, or nature, that is generated or acquired by government entities while carrying out their official duties. It also includes data collected by entities responsible for infrastructure, public facility or national infrastructure management, operation, or maintenance, and public services related to overseeing those facilities or infrastructure.",
+      "answered": true,
+      "grounded": true,
+      "latency_s": 2.1,
+      "usage": {
+        "prompt_tokens": 1871,
+        "completion_tokens": 70,
+        "embedding_tokens": 12
+      },
+      "judge_usage": {
+        "prompt_tokens": 1693,
+        "completion_tokens": 14,
+        "embedding_tokens": 0
+      },
+      "cost_usd": 0.003039
+    },
+    {
+      "id": "pub-01",
+      "category": "factual",
+      "question": "What are the principles of generative AI?",
+      "expected_sources": [
+        "GenerativeAIPublicEN.pdf",
+        "GenAIGuidelinesForGovernmentENCompressed.pdf"
+      ],
+      "retrieved_sources": [
+        "GenAIGuidelinesForGovernmentENCompressed.pdf",
+        "GenerativeAIPublicEN.pdf"
+      ],
+      "source_hit": true,
+      "answer": "The principles of generative AI mentioned are:\n\n1. Fairness  \n   GenAI systems should avoid bias, discrimination, and stigmatization. Training data should be representative and cleansed of bias, and users and developers should understand the origins and preparation of the data.\n\n2. Transparency & Explainability  \n   GenAI systems should be explainable and help users understand when and how automated decisions or content are generated. Users should be clearly informed when AI is being used, and AI-generated content should be identifiable.\n\n3. Accountability & Responsibility  \n   Designers, developers, vendors, owners, and users are responsible for the outcomes of GenAI systems. This includes addressing legal and ethical concerns such as intellectual property, data privacy, and human rights, while ensuring proper data handling and quality validation.",
+      "answered": true,
+      "grounded": true,
+      "latency_s": 3.92,
+      "usage": {
+        "prompt_tokens": 1718,
+        "completion_tokens": 160,
+        "embedding_tokens": 9
+      },
+      "judge_usage": {
+        "prompt_tokens": 1642,
+        "completion_tokens": 14,
+        "embedding_tokens": 0
+      },
+      "cost_usd": 0.003747
+    },
+    {
+      "id": "pub-02",
+      "category": "factual",
+      "question": "What benefits of generative AI are described for the public?",
+      "expected_sources": [
+        "GenerativeAIPublicEN.pdf"
+      ],
+      "retrieved_sources": [
+        "GenAIGuidelinesForGovernmentENCompressed.pdf",
+        "GenerativeAIPublicEN.pdf"
+      ],
+      "source_hit": true,
+      "answer": "The benefits described for the public are:\n\n- Increased efficiency and productivity by automating routine tasks such as summarizing documents, transcribing text, and generating images or videos, allowing people to focus on more strategic work.\n- Improved communication and collaboration through content creation, digital avatars, better video conferencing bandwidth optimization, and advanced virtual collaboration environments.\n- Informed decision-making by analyzing and summarizing data in multiple formats like text, audio, and video, and by helping simulate scenarios in areas such as crisis management, healthcare, and education.\n- Enhanced accessibility and inclusion by creating content adapted for people with special needs or disabilities and by producing content aligned with local dialects and traditions.\n- Elevated public service quality through more customized service delivery and greater availability across sectors such as healthcare, education, social welfare, and legal assistance.",
+      "answered": true,
+      "grounded": true,
+      "latency_s": 3.57,
+      "usage": {
+        "prompt_tokens": 1686,
+        "completion_tokens": 165,
+        "embedding_tokens": 12
+      },
+      "judge_usage": {
+        "prompt_tokens": 1612,
+        "completion_tokens": 14,
+        "embedding_tokens": 0
+      },
+      "cost_usd": 0.003757
+    },
+    {
+      "id": "pub-03",
+      "category": "factual",
+      "question": "What mitigation measures are suggested for generative AI safety threats?",
+      "expected_sources": [
+        "GenerativeAIPublicEN.pdf"
+      ],
+      "retrieved_sources": [
+        "GenerativeAIPublicEN.pdf"
+      ],
+      "source_hit": true,
+      "answer": "Suggested mitigation measures for generative AI safety threats are:\n\n- Deploy strong content moderation and filtering systems on platforms that expose GenAI outputs to users.\n- Verify both user prompts and model outputs to detect, flag, and prevent harmful or malicious content.\n- Regularly update and refine moderation systems using feedback and emerging threat trends.\n- Filter training datasets to reduce the inclusion of potentially dangerous information.\n- Limit open access or open-source release of scientific GenAI models that could create safety threats.\n- Require user identity verification and intended research purpose before granting access to high-risk scientific models.",
+      "answered": true,
+      "grounded": true,
+      "latency_s": 2.3,
+      "usage": {
+        "prompt_tokens": 2089,
+        "completion_tokens": 117,
+        "embedding_tokens": 12
+      },
+      "judge_usage": {
+        "prompt_tokens": 1973,
+        "completion_tokens": 14,
+        "embedding_tokens": 0
+      },
+      "cost_usd": 0.003781
+    },
+    {
+      "id": "dfk-01",
+      "category": "factual",
+      "question": "What guidance is given to deepfake technology developers?",
+      "expected_sources": [
+        "File0001.pdf"
+      ],
+      "retrieved_sources": [
+        "File0001.pdf"
+      ],
+      "source_hit": true,
+      "answer": "Guidance for deepfake technology developers includes:\n\n- Follow ethical standards, safeguard personal data, and prevent misuse of the technology.\n- Comply with applicable laws and respect social ethics and correct values.\n- Build systems that support content authenticity verification and help prevent misuse of synthetic media.\n- Aim to direct development toward positive and constructive uses while reducing societal risks.\n- Adhere to relevant local and international data privacy laws, including GDPR, CCPA, and Saudi Arabia’s PDPL and Anti-Cyber Crime Law.\n- Integrate legal compliance checks into the development environment, such as policy-as-code frameworks like Terraform and Cedar Policy Language.\n- Strengthen knowledge and capability through ongoing training:\n  - monthly technical webinars on AI and deepfake advances\n  - bi-annual intensive workshops with hands-on coding, advanced AI algorithms, and problem-solving\n  - training on creating and detecting deepfakes responsibly and integrating detection tools into software solutions.",
+      "answered": true,
+      "grounded": true,
+      "latency_s": 3.63,
+      "usage": {
+        "prompt_tokens": 1984,
+        "completion_tokens": 190,
+        "embedding_tokens": 10
+      },
+      "judge_usage": {
+        "prompt_tokens": 1961,
+        "completion_tokens": 14,
+        "embedding_tokens": 0
+      },
+      "cost_usd": 0.00438
+    },
+    {
+      "id": "dfk-02",
+      "category": "factual",
+      "question": "How can consumers detect deepfakes and prevent related risks?",
+      "expected_sources": [
+        "File0001.pdf"
+      ],
+      "retrieved_sources": [
+        "File0001.pdf"
+      ],
+      "source_hit": true,
+      "answer": "Consumers can detect deepfakes and reduce related risks by following these practices:\n\n- **Verify the source**: Check whether the content comes from a trustworthy source such as an official organization or known individual. Cross-check with official websites, verified social media accounts, or confirm through known contact channels.\n\n- **Assess the context**: Consider whether the message matches the source’s usual behavior or communication style. Be suspicious if it seems unusual, such as unexpected offers, requests, or endorsements.\n\n- **Examine the aim of the content**: Treat messages with caution if they create urgency or strong emotions, especially if they push you to click links, download apps, send money, or share personal information.\n\n- **Analyze audio-visual elements**: Look for signs of manipulation such as unnatural facial expressions, especially around the mouth, eyes, and eyebrows, as well as irregular facial movements or other inconsistencies.\n\n- **Use detection tools and metadata checks**: AI tools can help analyze videos and images for manipulation. Checking metadata such as creation date, editing history, and software used can also help identify tampering.\n\n- **Learn common deepfake characteristics**: Understanding signs like unnatural facial movement, inconsistent lighting and shadows, and audio irregularities helps people question suspicious media.\n\n- **Protect personal data online**: Limit the amount of personal data, photos, and videos shared publicly, especially high-resolution images and personal videos, to reduce material that could be misused.\n\n- **Stay informed and educated**: Use reputable sources, educational resources, workshops, webinars, and awareness campaigns to improve your ability to recognize and respond to deepfakes.\n\n- **Verify unexpected communications**: If you receive unusual calls, video messages, or emotional requests, especially involving money or sensitive information, confirm them independently before acting.\n\n- **Seek a second opinion if unsure**: Discuss suspicious content with friends or family to help assess whether it may be deceptive.",
+      "answered": true,
+      "grounded": true,
+      "latency_s": 7.41,
+      "usage": {
+        "prompt_tokens": 2286,
+        "completion_tokens": 388,
+        "embedding_tokens": 12
+      },
+      "judge_usage": {
+        "prompt_tokens": 2461,
+        "completion_tokens": 14,
+        "embedding_tokens": 0
+      },
+      "cost_usd": 0.006737
+    },
+    {
+      "id": "dfk-03",
+      "category": "factual",
+      "question": "What are non-malicious deepfakes and how are they used?",
+      "expected_sources": [
+        "File0001.pdf"
+      ],
+      "retrieved_sources": [
+        "File0001.pdf"
+      ],
+      "source_hit": true,
+      "answer": "Non-malicious deepfakes are deepfakes used for beneficial purposes without intent to deceive or harm. They can include AI-generated or manipulated image, audio, and video content created ethically and responsibly.\n\nThey are used in several ways, including:\n\n- Training simulations: realistic scenarios for military, medical, or customer service training\n- Film and production: creating digital actors, de-aging performers, or altering dialogue\n- Audio applications: realistic voiceovers and dubbing in different languages without the original actors\n- Advertising: creating engaging and novel brand campaigns\n\nThey also have valuable applications across sectors such as:\n\n- Marketing\n- Entertainment\n- Retail\n- Education\n- Healthcare\n- Culture\n\nIn general, their impact depends on the intent and application rather than the technology itself.",
+      "answered": true,
+      "grounded": true,
+      "latency_s": 2.95,
+      "usage": {
+        "prompt_tokens": 2060,
+        "completion_tokens": 158,
+        "embedding_tokens": 15
+      },
+      "judge_usage": {
+        "prompt_tokens": 2005,
+        "completion_tokens": 14,
+        "embedding_tokens": 0
+      },
+      "cost_usd": 0.004155
+    },
+    {
+      "id": "adp-01",
+      "category": "factual",
+      "question": "What are the directions, enablers, and outcomes in the AI adoption framework?",
+      "expected_sources": [
+        "AIAdoptionFramework.pdf"
+      ],
+      "retrieved_sources": [
+        "AIAdoptionFramework.pdf"
+      ],
+      "source_hit": true,
+      "answer": "The AI adoption framework is built on three interconnected pillars:\n\n- **Directions**: Strategic and enterprise aspects such as clarity of vision and goals, quality of technology initiative design, effectiveness of governance frameworks, and adherence to them. It includes areas like **strategy, governance, plan and performance, frameworks and policies, initiatives, budget, regulatory compliance, and trustworthiness and safety**.\n\n- **Enablers**: The supporting infrastructure and capabilities needed for adoption, including **data, infrastructure, and human capacity**. This covers factors such as **availability and access, technical standards, quality and integration, reliability, job stability, operational flexibility, number and diversity of workforce, professional development, and academic cooperation**.\n\n- **Outcomes**: The actual results achieved from AI adoption, reflected in **applications and impact**. These include **development and deployment, privacy and safety, operation and management, operational efficiency, employee productivity, and service quality enhancement**, along with broader effects like cost reduction, better service quality, and improved resource sustainability.",
+      "answered": true,
+      "grounded": true,
+      "latency_s": 3.91,
+      "usage": {
+        "prompt_tokens": 2153,
+        "completion_tokens": 209,
+        "embedding_tokens": 17
+      },
+      "judge_usage": {
+        "prompt_tokens": 2139,
+        "completion_tokens": 14,
+        "embedding_tokens": 0
+      },
+      "cost_usd": 0.004781
+    },
+    {
+      "id": "adp-02",
+      "category": "factual",
+      "question": "What challenges and risks of artificial intelligence are identified in the adoption framework?",
+      "expected_sources": [
+        "AIAdoptionFramework.pdf"
+      ],
+      "retrieved_sources": [
+        "AIAdoptionFramework.pdf"
+      ],
+      "source_hit": true,
+      "answer": "The framework identifies these main AI challenges and risks:\n\n- Poor data quality and weak integration across data sources, which can lead to inaccurate or biased outputs.\n- Opaque “black box” algorithms, making decisions hard to explain and raising transparency and accountability concerns.\n- Shortage of specialized talent in areas like data science, engineering, and digital policy.\n- Organizational and cultural resistance, since AI adoption requires changes in service design, decision-making, governance, leadership, and infrastructure.\n- Ethical risks, especially fairness, privacy, and unintended discrimination.\n- Legal and operational risks, including intellectual property issues, unclear legal responsibilities, and potential disputes.\n- Technical and security-related risks such as algorithmic bias, cyber violations, and privacy concerns.\n\nThe framework also emphasizes that managing these risks depends on digital maturity, organizational awareness, and proactive adoption strategies that balance innovation with safeguards.",
+      "answered": true,
+      "grounded": true,
+      "latency_s": 3.14,
+      "usage": {
+        "prompt_tokens": 2490,
+        "completion_tokens": 174,
+        "embedding_tokens": 14
+      },
+      "judge_usage": {
+        "prompt_tokens": 2441,
+        "completion_tokens": 14,
+        "embedding_tokens": 0
+      },
+      "cost_usd": 0.004853
+    },
+    {
+      "id": "adp-03",
+      "category": "factual",
+      "question": "Who is the target audience of the AI adoption framework?",
+      "expected_sources": [
+        "AIAdoptionFramework.pdf"
+      ],
+      "retrieved_sources": [
+        "AIAdoptionFramework.pdf"
+      ],
+      "source_hit": true,
+      "answer": "The target audience consists of two primary categories:\n\n- Policymakers and legislators\n- Government entities",
+      "answered": true,
+      "grounded": true,
+      "latency_s": 2.16,
+      "usage": {
+        "prompt_tokens": 1806,
+        "completion_tokens": 22,
+        "embedding_tokens": 11
+      },
+      "judge_usage": {
+        "prompt_tokens": 1606,
+        "completion_tokens": 14,
+        "embedding_tokens": 0
+      },
+      "cost_usd": 0.002478
+    },
+    {
+      "id": "edu-01",
+      "category": "factual",
+      "question": "How are AI qualifications placed on the National Qualifications Framework levels?",
+      "expected_sources": [
+        "File0003.pdf"
+      ],
+      "retrieved_sources": [
+        "File0003.pdf"
+      ],
+      "source_hit": true,
+      "answer": "AI qualifications are placed by mapping qualifications issued by recognized or accredited educational and training institutions to the corresponding levels of the National Qualifications Framework.\n\nThe placement is guided by:\n- the qualification’s learning outcomes,\n- the framework’s eight qualification levels,\n- the specified minimum credit hours,\n- and the required learning domains such as knowledge, understanding, skills, values, independence, and responsibility.\n\nThis means an AI qualification is aligned to the NQF level that matches its outcomes and requirements.",
+      "answered": true,
+      "grounded": true,
+      "latency_s": 2.45,
+      "usage": {
+        "prompt_tokens": 1611,
+        "completion_tokens": 98,
+        "embedding_tokens": 13
+      },
+      "judge_usage": {
+        "prompt_tokens": 1496,
+        "completion_tokens": 14,
+        "embedding_tokens": 0
+      },
+      "cost_usd": 0.002994
+    },
+    {
+      "id": "edu-02",
+      "category": "factual",
+      "question": "What international benchmarks were used for the Saudi academic framework for AI?",
+      "expected_sources": [
+        "File0003.pdf"
+      ],
+      "retrieved_sources": [
+        "File0003.pdf"
+      ],
+      "source_hit": true,
+      "answer": "The framework states that it used local and international benchmarks, including an overview of a number of prestigious educational and training institutions worldwide.\n\nIt does not list the specific international institutions in the provided pages.",
+      "answered": false,
+      "grounded": false,
+      "latency_s": 1.54,
+      "usage": {
+        "prompt_tokens": 1240,
+        "completion_tokens": 41,
+        "embedding_tokens": 13
+      },
+      "judge_usage": {
+        "prompt_tokens": 1068,
+        "completion_tokens": 13,
+        "embedding_tokens": 0
+      },
+      "cost_usd": 0.00196
+    },
+    {
+      "id": "cmp-01",
+      "category": "comparison",
+      "question": "How do the privacy and security principles for generative AI in government compare with those for the public?",
+      "expected_sources": [
+        "GenAIGuidelinesForGovernmentENCompressed.pdf",
+        "GenerativeAIPublicEN.pdf"
+      ],
+      "retrieved_sources": [
+        "GenAIGuidelinesForGovernmentENCompressed.pdf",
+        "GenerativeAIPublicEN.pdf"
+      ],
+      "source_hit": true,
+      "answer": "The privacy and security principles are broadly similar, but the government guidance is stricter and more restrictive.\n\nSimilarities:\n- Both require strong privacy and security protections.\n- Both call for compliance with the Personal Data Protection Law and relevant legal requirements.\n- Both emphasize assessing risks from GenAI use, including issues such as data leakage and other harms.\n- Both support ongoing risk management and the use of security controls to protect systems and data.\n\nGovernment-specific approach:\n- Government employees must not enter data classified as restricted or above, including restricted, confidential, and top secret.\n- Use should be limited to data classified as public.\n- Users are expected to review tool privacy policies, including disclosure and sharing terms.\n- There is strong emphasis on preventing illegal access, monitoring outputs across the system life cycle, and following government data classification and cybersecurity requirements.\n- The guidance highlights practical risks such as data leakage, misinformation, deepfake, bias, and safety-related decisions.\n\nPublic-focused approach:\n- The public guidance also requires privacy and security measures, but it allows for the use of classified data in training as long as adequate protections are in place.\n- It emphasizes privacy and security by design, including protection of AI architecture and modules from malicious attacks and unauthorized modification.\n- It calls for continuous privacy impact and risk management assessments.\n- Risks are categorized as little or no risk, limited risk, high risk, or unacceptable risk.\n\nIn short:\n- Government guidance is more cautious about what data may be used, limiting use to public data and prohibiting entry of restricted or higher data.\n- Public guidance is more design- and lifecycle-focused, emphasizing secure system construction, architectural protection, and continuous assessment.",
+      "answered": true,
+      "grounded": true,
+      "latency_s": 5.12,
+      "usage": {
+        "prompt_tokens": 1947,
+        "completion_tokens": 336,
+        "embedding_tokens": 20
+      },
+      "judge_usage": {
+        "prompt_tokens": 2041,
+        "completion_tokens": 14,
+        "embedding_tokens": 0
+      },
+      "cost_usd": 0.005794
+    },
+    {
+      "id": "cmp-02",
+      "category": "comparison",
+      "question": "How does data classification relate to personal data protection requirements?",
+      "expected_sources": [
+        "DataClassificationPolicy.pdf",
+        "DataManagementPersonalDataProtectionStandards.pdf"
+      ],
+      "retrieved_sources": [
+        "DataClassificationPolicy.pdf",
+        "DataManagementPersonalDataProtectionStandards.pdf"
+      ],
+      "source_hit": true,
+      "answer": "Data classification supports personal data protection by ensuring data is categorized and protected according to its sensitivity and the impact of mishandling or unauthorized access.\n\nKey points include:\n\n- Data is classified after an impact assessment that considers:\n  - unauthorized disclosure or access,\n  - amendment or destruction,\n  - lack of timely access.\n\n- Classification levels are assigned based on potential damage caused by misuse or unauthorized access.\n\n- Once classified, protection requirements are applied accordingly, such as:\n  - protective marking on paper and electronic documents,\n  - access control using least privilege and need-to-know,\n  - immediate removal of access when employment or service ends,\n  - restrictions on how classified data is used,\n  - stronger storage protections for higher-classified data.\n\n- If data is combined from different classification levels, the highest classification level must be applied.\n\n- Classification must be done when data is created or received, reviewed regularly, and may be adjusted only with careful understanding of the data and its context.\n\nIn this way, data classification acts as a foundation for personal data protection requirements by determining what level of security and handling controls must be applied to the data.",
+      "answered": true,
+      "grounded": true,
+      "latency_s": 4.42,
+      "usage": {
+        "prompt_tokens": 1714,
+        "completion_tokens": 230,
+        "embedding_tokens": 11
+      },
+      "judge_usage": {
+        "prompt_tokens": 1723,
+        "completion_tokens": 14,
+        "embedding_tokens": 0
+      },
+      "cost_usd": 0.004443
+    },
+    {
+      "id": "ara-01",
+      "category": "arabic_probe",
+      "question": "What organizational arrangements are described for data governance responsibilities?",
+      "expected_sources": [
+        "organizationalArrangements.pdf"
+      ],
+      "retrieved_sources": [
+        "AIAdoptionFramework.pdf",
+        "DataManagementPersonalDataProtectionStandards.pdf"
+      ],
+      "source_hit": false,
+      "answer": "The organizational arrangements described for data governance responsibilities include establishing dedicated governance bodies and assigning specific roles, as follows:\n\n- A Data Management Office to manage achievement of the entity’s data management agenda.\n- A Data Management Committee to provide direction and oversight for the overall data management agenda.\n- A Chief Data Officer to lead data management and personal data protection.\n- A Data Governance Officer to support the data management agenda.\n- An Open Data and Information Access Officer to support open data and information access activities.\n- A Compliance Officer to audit and monitor the data management agenda.\n- A Personal Data Protection Officer to support the personal data protection agenda.\n- Business Data Executives to enable data management in their respective business domains.\n- Business Data Stewards to enable data management in their related domains.\n- IT Data Stewards to enable the data management agenda from an IT perspective.\n\nThese responsibilities are to be formally identified, appointed, and reflected in job descriptions, with the Data Governance Office acting as a centralized supervisory function for policy development, monitoring implementation, organizing access processes, documenting data usage, and conducting regular audits.",
+      "answered": true,
+      "grounded": false,
+      "latency_s": 3.22,
+      "usage": {
+        "prompt_tokens": 1966,
+        "completion_tokens": 219,
+        "embedding_tokens": 10
+      },
+      "judge_usage": {
+        "prompt_tokens": 1954,
+        "completion_tokens": 14,
+        "embedding_tokens": 0
+      },
+      "cost_usd": 0.004647
+    },
+    {
+      "id": "oos-01",
+      "category": "out_of_scope",
+      "question": "What is the maximum GDPR fine for a data breach under German law?",
+      "expected_sources": [],
+      "retrieved_sources": [
+        "DataManagementPersonalDataProtectionStandards.pdf",
+        "PrivacyPolicyGuideline.pdf",
+        "RisksTransferringDataOutsideKingdomEn.pdf"
+      ],
+      "source_hit": null,
+      "answer": "The provided materials do not state the maximum GDPR fine for a data breach under German law. They mention GDPR as a reference, but do not give any German-law fine amounts.",
+      "answered": false,
+      "grounded": false,
+      "latency_s": 1.88,
+      "usage": {
+        "prompt_tokens": 1585,
+        "completion_tokens": 38,
+        "embedding_tokens": 14
+      },
+      "judge_usage": {
+        "prompt_tokens": 1390,
+        "completion_tokens": 13,
+        "embedding_tokens": 0
+      },
+      "cost_usd": 0.002361
+    },
+    {
+      "id": "oos-02",
+      "category": "out_of_scope",
+      "question": "How do I configure a Kubernetes ingress controller with TLS termination?",
+      "expected_sources": [],
+      "retrieved_sources": [
+        "DataManagementPersonalDataProtectionStandards.pdf"
+      ],
+      "source_hit": null,
+      "answer": "The provided material does not describe Kubernetes ingress controllers or TLS termination configuration.\n\nIt focuses on governance and control requirements such as:\n- producing an Integration Requirements Document and Solution Design Document for integration initiatives,\n- testing integration solutions before production deployment,\n- assigning security controls to datasets based on classification,\n- establishing database access and storage configuration processes,\n- and defining KPIs for data sharing and interoperability.\n\nIf you want, I can help you:\n1. find whether another document in your collection covers Kubernetes, or\n2. reformulate your question to align with the available standards material.",
+      "answered": false,
+      "grounded": false,
+      "latency_s": 2.73,
+      "usage": {
+        "prompt_tokens": 1812,
+        "completion_tokens": 116,
+        "embedding_tokens": 12
+      },
+      "judge_usage": {
+        "prompt_tokens": 1695,
+        "completion_tokens": 13,
+        "embedding_tokens": 0
+      },
+      "cost_usd": 0.003425
+    },
+    {
+      "id": "oos-03",
+      "category": "out_of_scope",
+      "question": "What were the quarterly revenue figures for Aramco in 2024?",
+      "expected_sources": [],
+      "retrieved_sources": [
+        "File0003.pdf",
+        "organizationalArrangements.pdf"
+      ],
+      "source_hit": null,
+      "answer": "I don’t have information here about Aramco’s quarterly revenue figures for 2024. The available material relates to SDAIA organizational arrangements and the Saudi Academic Framework for AI Qualifications.",
+      "answered": false,
+      "grounded": false,
+      "latency_s": 2.2,
+      "usage": {
+        "prompt_tokens": 1023,
+        "completion_tokens": 40,
+        "embedding_tokens": 15
+      },
+      "judge_usage": {
+        "prompt_tokens": 846,
+        "completion_tokens": 14,
+        "embedding_tokens": 0
+      },
+      "cost_usd": 0.001679
+    }
+  ],
+  "validation": [
+    {
+      "objective": "",
+      "should_reject": true,
+      "rejected": true,
+      "correct": true,
+      "reason": "Objective is empty."
+    },
+    {
+      "objective": "   ",
+      "should_reject": true,
+      "rejected": true,
+      "correct": true,
+      "reason": "Objective is empty."
+    },
+    {
+      "objective": "AI",
+      "should_reject": true,
+      "rejected": true,
+      "correct": true,
+      "reason": "Objective is too broad; state a specific question of at least four words."
+    },
+    {
+      "objective": "tell me everything about the knowledge base",
+      "should_reject": true,
+      "rejected": true,
+      "correct": true,
+      "reason": "Objective is overly broad (contains 'everything about'); narrow the scope."
+    },
+    {
+      "objective": "compare policies compare policies compare policies compare p",
+      "should_reject": true,
+      "rejected": true,
+      "correct": true,
+      "reason": "Objective exceeds 500 characters; narrow it to one focused question."
+    },
+    {
+      "objective": "What are the data classification levels used by the policy?",
+      "should_reject": false,
+      "rejected": false,
+      "correct": true,
+      "reason": null
+    }
+  ],
+  "agent_runs": [
+    {
+      "id": "cls-01",
+      "question": "What are the data classification levels?",
+      "status": "awaiting_approval",
+      "latency_s": 13.94,
+      "usage": {
+        "prompt_tokens": 3211,
+        "completion_tokens": 544,
+        "embedding_tokens": 7
+      },
+      "cost_usd": 0.009454,
+      "report_chars": 1904
+    },
+    {
+      "id": "prv-02",
+      "question": "What rights do personal data subjects have under the privacy policy guideline?",
+      "status": "awaiting_approval",
+      "latency_s": 26.34,
+      "usage": {
+        "prompt_tokens": 6939,
+        "completion_tokens": 1167,
+        "embedding_tokens": 25
+      },
+      "cost_usd": 0.020344,
+      "report_chars": 3325
+    },
+    {
+      "id": "dfk-01",
+      "question": "What guidance is given to deepfake technology developers?",
+      "status": "awaiting_approval",
+      "latency_s": 47.28,
+      "usage": {
+        "prompt_tokens": 15566,
+        "completion_tokens": 2709,
+        "embedding_tokens": 87
+      },
+      "cost_usd": 0.046547,
+      "report_chars": 5633
+    },
+    {
+      "id": "cmp-02",
+      "question": "How does data classification relate to personal data protection requirements?",
+      "status": "awaiting_approval",
+      "latency_s": 29.67,
+      "usage": {
+        "prompt_tokens": 12670,
+        "completion_tokens": 2614,
+        "embedding_tokens": 35
+      },
+      "cost_usd": 0.041978,
+      "report_chars": 5750
+    },
+    {
+      "id": "oos-01",
+      "question": "What is the maximum GDPR fine for a data breach under German law?",
+      "status": "awaiting_approval",
+      "latency_s": 24.5,
+      "usage": {
+        "prompt_tokens": 10356,
+        "completion_tokens": 880,
+        "embedding_tokens": 85
+      },
+      "cost_usd": 0.021745,
+      "report_chars": 2113
+    }
+  ]
+}

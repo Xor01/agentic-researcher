@@ -66,6 +66,7 @@ uv run python -m app.ingest
 | `uv run python -m pytest tests/ --ignore=tests/smoke_test.py` | Run the unit suite (offline, no API calls) |
 | `uv run python -m tests.orchestrator_smoke` | Live end-to-end check (**costs API calls**) |
 | `uv run python -m tests.compare_sources_smoke` | Live check of `compare_sources` (**costs API calls**) |
+| `uv run python -m eval.run_eval` | Run the evaluation suite (**costs API calls**) — see [EVALUATION.md](EVALUATION.md) |
 
 ### API
 
@@ -123,6 +124,9 @@ grep <report_id> reports/audit_log.jsonl   # full trail for any saved report
 
 ## Limitations
 
+- **Arabic documents are effectively unreachable.** English queries do not retrieve
+  the Arabic-language document, and the system answers from a substituted English
+  document without flagging it. See [EVALUATION.md](EVALUATION.md#failure-analysis).
 - **Corpus-bound.** The agent answers only from `data/`. It has no web access
   and no knowledge of anything outside the index. Retrieval quality caps answer
   quality: if a topic isn't indexed, the answer will be thin regardless of how
@@ -188,6 +192,7 @@ app/
   services/          LLM config, cached index/query engine
   tools/             agent tools (search, compare, audit, save)
 tests/               unit tests (offline) + *_smoke.py (live, cost money)
+eval/                evaluation dataset + harness  →  EVALUATION.md
 data/                source documents
 storage/             persisted vector index  (git-ignored)
 reports/             saved reports + audit_log.jsonl  (git-ignored)
