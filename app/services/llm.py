@@ -4,5 +4,5 @@ from llama_index.llms.openai import OpenAI
 from app.config import config
 
 def configure_models() -> None:
-    Settings.llm = OpenAI(model=config.llm_model, temperature=0.1)
+    Settings.llm = OpenAI(model=config.llm_model, temperature=config.temperature)
     Settings.embed_model = OpenAIEmbedding(model=config.embedding_model)
