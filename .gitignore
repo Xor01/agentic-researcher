@@ -11,7 +11,6 @@ wheels/
 .env
 
 # Data files
-*.pdf
 *.pyc
 storage/
 reports/
