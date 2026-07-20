@@ -25,7 +25,7 @@ def record_audit_event(action: str, detail: str) -> str:
     "detail": detail,
     }
     with log_path.open("a", encoding="utf-8") as file:
-        file.write(json.dumps(event, ensure_ascii=False) + "\n")
+        file.write(json.dumps(  event, ensure_ascii=False) + "\n")
         return "Audit event recorded."
 
 def _summarize(query_engine, topic: str) -> dict:
