@@ -17,11 +17,13 @@ Operational rules:
 6. Record an audit event before and after a consequential action.
 7. End with: findings, evidence limitations, confidence, and next action.
 """
-def build_agent() -> FunctionAgent:
+def build_agent(tools=None) -> FunctionAgent:
+    if tools is None:
+        tools = build_tools()
     return FunctionAgent(
     name="EvidenceOpsAgent",
     description="Plans research, retrieves evidence, synthesizes findings, and prepares reports.",
     system_prompt=SYSTEM_PROMPT,
-    tools=build_tools(),
+    tools=tools,
     llm=OpenAI(model=config.llm_model, temperature=0.1),
     )

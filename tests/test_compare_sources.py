@@ -1,7 +1,11 @@
 import json
 from types import SimpleNamespace
 
-from app.tools.research_tools import compare_sources
+from app.tools.research_tools import ToolCallBudget, compare_sources
+
+
+def budget():
+    return ToolCallBudget(10)
 
 
 class FakeResponse:
@@ -43,7 +47,7 @@ def test_compare_sources_partitions_overlap_and_differences():
             ),
         }
     )
-    result = json.loads(compare_sources(engine, "agent safety", "agent logging"))
+    result = json.loads(compare_sources(budget(), engine, "agent safety", "agent logging"))
 
     assert engine.queries == ["agent safety", "agent logging"]
     assert result["topic_a"]["topic"] == "agent safety"
@@ -61,7 +65,7 @@ def test_compare_sources_reports_evidence_limitations_when_sources_missing():
             "unknown topic": FakeResponse("Empty Response", []),
         }
     )
-    result = json.loads(compare_sources(engine, "known topic", "unknown topic"))
+    result = json.loads(compare_sources(budget(), engine, "known topic", "unknown topic"))
 
     limitations = " ".join(result["evidence_limitations"])
     assert "unknown topic" in limitations
@@ -77,6 +81,6 @@ def test_compare_sources_writes_no_files(tmp_path, monkeypatch):
             "b": FakeResponse("B.", [fake_node("b.md", 0.9)]),
         }
     )
-    compare_sources(engine, "a", "b")
+    compare_sources(budget(), engine, "a", "b")
 
     assert list(tmp_path.iterdir()) == []
